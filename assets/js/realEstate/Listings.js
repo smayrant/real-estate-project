@@ -26,15 +26,17 @@ export default class Header extends Component {
       <section className="listings-results">
         <div className="listing">
           <div className="listing-img">
-            <span className="address">Address</span>
+            <span className="address">4812 Baldwin Hills</span>
             <div className="details">
-              <div className="user-img"><img src="https://randomuser.me/api/portraits/women/65.jpg" /></div>
-              <div className="user-details">
-                <span className="user-name">Nina Simone</span>
-                <span className="listing-date">Posted on 8/22/2018</span>
+              <div className="user-details-container">
+                <div className="user-img"><img src="https://randomuser.me/api/portraits/women/65.jpg" /></div>
+                <div className="user-details">
+                  <span className="user-name">Nina Simone</span>
+                  <span className="listing-date">Posted on 8/22/2018</span>
+                </div>
               </div>
               <div className="listing-details">
-                <div className="Square Footage">
+                <div className="squareFootage">
                   <i className="fas fa-home"></i>
                   <span>1,456 sqft</span>
                 </div>
@@ -42,6 +44,9 @@ export default class Header extends Component {
                   <i className="fas fa-bed"></i>
                   <span>4 Bedrooms</span>
                 </div>
+              </div>
+              <div className="viewListing">
+                View Listing
               </div>
             </div>
           </div>

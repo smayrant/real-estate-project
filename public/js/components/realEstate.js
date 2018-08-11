@@ -408,28 +408,32 @@ var Header = function (_Component) {
               _react2.default.createElement(
                 "span",
                 { className: "address" },
-                "Address"
+                "4812 Baldwin Hills"
               ),
               _react2.default.createElement(
                 "div",
                 { className: "details" },
                 _react2.default.createElement(
                   "div",
-                  { className: "user-img" },
-                  _react2.default.createElement("img", { src: "https://randomuser.me/api/portraits/women/65.jpg" })
-                ),
-                _react2.default.createElement(
-                  "div",
-                  { className: "user-details" },
+                  { className: "user-details-container" },
                   _react2.default.createElement(
-                    "span",
-                    { className: "user-name" },
-                    "Nina Simone"
+                    "div",
+                    { className: "user-img" },
+                    _react2.default.createElement("img", { src: "https://randomuser.me/api/portraits/women/65.jpg" })
                   ),
                   _react2.default.createElement(
-                    "span",
-                    { className: "listing-date" },
-                    "Posted on 8/22/2018"
+                    "div",
+                    { className: "user-details" },
+                    _react2.default.createElement(
+                      "span",
+                      { className: "user-name" },
+                      "Nina Simone"
+                    ),
+                    _react2.default.createElement(
+                      "span",
+                      { className: "listing-date" },
+                      "Posted on 8/22/2018"
+                    )
                   )
                 ),
                 _react2.default.createElement(
@@ -437,7 +441,7 @@ var Header = function (_Component) {
                   { className: "listing-details" },
                   _react2.default.createElement(
                     "div",
-                    { className: "Square Footage" },
+                    { className: "squareFootage" },
                     _react2.default.createElement("i", { className: "fas fa-home" }),
                     _react2.default.createElement(
                       "span",
@@ -455,6 +459,11 @@ var Header = function (_Component) {
                       "4 Bedrooms"
                     )
                   )
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "viewListing" },
+                  "View Listing"
                 )
               )
             ),
