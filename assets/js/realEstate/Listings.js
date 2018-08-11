@@ -24,47 +24,148 @@ export default class Header extends Component {
         </div>
       </section>
       <section className="listings-results">
-        <div className="listing">
-          <div className="listing-img">
-            <span className="address">4812 Baldwin Hills</span>
-            <div className="details">
-              <div className="user-details-container">
-                <div className="user-img"><img src="https://randomuser.me/api/portraits/women/65.jpg" /></div>
-                <div className="user-details">
-                  <span className="user-name">Nina Simone</span>
-                  <span className="listing-date">Posted on 8/22/2018</span>
+        <div className="col-md-3">
+          <div className="listing">
+            <div className="listing-img">
+              <span className="address">4812 Baldwin Hills</span>
+              <div className="details">
+                <div className="user-details-container">
+                  <div className="user-img"><img src="https://randomuser.me/api/portraits/women/65.jpg" /></div>
+                  <div className="user-details">
+                    <span className="user-name">Nina Simone</span>
+                    <span className="listing-date">Posted on 8/22/2018</span>
+                  </div>
                 </div>
-              </div>
-              <div className="listing-details">
-                <div className="squareFootage">
-                  <i className="fas fa-home"></i>
-                  <span>1,456 sqft</span>
+                <div className="listing-details">
+                  <div className="squareFootage">
+                    <i className="fas fa-home"></i>
+                    <span>1,456 sqft</span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="fas fa-bed"></i>
+                    <span>4 Bedrooms</span>
+                  </div>
                 </div>
-                <div className="bedrooms">
-                  <i className="fas fa-bed"></i>
-                  <span>4 Bedrooms</span>
+                <div className="viewListing">
+                  View Listing
                 </div>
-              </div>
-              <div className="viewListing">
-                View Listing
               </div>
             </div>
+            <div className="bottom-info">
+              <span className="monthlyPrice">$1,250 Monthly</span>
+              <span className="location"><i className="fas fa-location-arrow"></i> Los Angeles, CA</span>
+            </div>
           </div>
-          <div className="bottom-info">
-            <span>$1,250 Monthly</span>
-            <span><i className="fas fa-location-arrow"></i> Los Angeles, CA</span>
+        </div>
+        <div className="col-md-3">
+          <div className="listing">
+            <div className="listing-img">
+              <span className="address">4812 Baldwin Hills</span>
+              <div className="details">
+                <div className="user-details-container">
+                  <div className="user-img"><img src="https://randomuser.me/api/portraits/women/65.jpg" /></div>
+                  <div className="user-details">
+                    <span className="user-name">Nina Simone</span>
+                    <span className="listing-date">Posted on 8/22/2018</span>
+                  </div>
+                </div>
+                <div className="listing-details">
+                  <div className="squareFootage">
+                    <i className="fas fa-home"></i>
+                    <span>1,456 sqft</span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="fas fa-bed"></i>
+                    <span>4 Bedrooms</span>
+                  </div>
+                </div>
+                <div className="viewListing">
+                  View Listing
+                </div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="monthlyPrice">$1,250 Monthly</span>
+              <span className="location"><i className="fas fa-location-arrow"></i> Los Angeles, CA</span>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="listing">
+            <div className="listing-img">
+              <span className="address">4812 Baldwin Hills</span>
+              <div className="details">
+                <div className="user-details-container">
+                  <div className="user-img"><img src="https://randomuser.me/api/portraits/women/65.jpg" /></div>
+                  <div className="user-details">
+                    <span className="user-name">Nina Simone</span>
+                    <span className="listing-date">Posted on 8/22/2018</span>
+                  </div>
+                </div>
+                <div className="listing-details">
+                  <div className="squareFootage">
+                    <i className="fas fa-home"></i>
+                    <span>1,456 sqft</span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="fas fa-bed"></i>
+                    <span>4 Bedrooms</span>
+                  </div>
+                </div>
+                <div className="viewListing">
+                  View Listing
+                </div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="monthlyPrice">$1,250 Monthly</span>
+              <span className="location"><i className="fas fa-location-arrow"></i> Los Angeles, CA</span>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="listing">
+            <div className="listing-img">
+              <span className="address">4812 Baldwin Hills</span>
+              <div className="details">
+                <div className="user-details-container">
+                  <div className="user-img"><img src="https://randomuser.me/api/portraits/women/65.jpg" /></div>
+                  <div className="user-details">
+                    <span className="user-name">Nina Simone</span>
+                    <span className="listing-date">Posted on 8/22/2018</span>
+                  </div>
+                </div>
+                <div className="listing-details">
+                  <div className="squareFootage">
+                    <i className="fas fa-home"></i>
+                    <span>1,456 sqft</span>
+                  </div>
+                  <div className="bedrooms">
+                    <i className="fas fa-bed"></i>
+                    <span>4 Bedrooms</span>
+                  </div>
+                </div>
+                <div className="viewListing">
+                  View Listing
+                </div>
+              </div>
+            </div>
+            <div className="bottom-info">
+              <span className="monthlyPrice">$1,250 Monthly</span>
+              <span className="location"><i className="fas fa-location-arrow"></i> Los Angeles, CA</span>
+            </div>
           </div>
         </div>
       </section>
       <section className="pagination">
-        <ul className="pagination-nums">
-          <li>Prev</li>
-          <li>1</li>
+        <ul className="pages">
+          <li className="pageButtons">Prev</li>
+          <li className="active">1</li>
           <li>2</li>
           <li>3</li>
           <li>4</li>
           <li>5</li>
-          <li>Next</li>
+          <li className="pageButtons">Next</li>
         </ul>
       </section>
     </section>)

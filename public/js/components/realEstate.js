@@ -401,85 +401,353 @@ var Header = function (_Component) {
           { className: "listings-results" },
           _react2.default.createElement(
             "div",
-            { className: "listing" },
+            { className: "col-md-3" },
             _react2.default.createElement(
               "div",
-              { className: "listing-img" },
+              { className: "listing" },
               _react2.default.createElement(
-                "span",
-                { className: "address" },
-                "4812 Baldwin Hills"
+                "div",
+                { className: "listing-img" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "address" },
+                  "4812 Baldwin Hills"
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "details" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "user-details-container" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "user-img" },
+                      _react2.default.createElement("img", { src: "https://randomuser.me/api/portraits/women/65.jpg" })
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "user-details" },
+                      _react2.default.createElement(
+                        "span",
+                        { className: "user-name" },
+                        "Nina Simone"
+                      ),
+                      _react2.default.createElement(
+                        "span",
+                        { className: "listing-date" },
+                        "Posted on 8/22/2018"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "listing-details" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "squareFootage" },
+                      _react2.default.createElement("i", { className: "fas fa-home" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "1,456 sqft"
+                      )
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "bedrooms" },
+                      _react2.default.createElement("i", { className: "fas fa-bed" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "4 Bedrooms"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "viewListing" },
+                    "View Listing"
+                  )
+                )
               ),
               _react2.default.createElement(
                 "div",
-                { className: "details" },
+                { className: "bottom-info" },
                 _react2.default.createElement(
-                  "div",
-                  { className: "user-details-container" },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "user-img" },
-                    _react2.default.createElement("img", { src: "https://randomuser.me/api/portraits/women/65.jpg" })
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "user-details" },
-                    _react2.default.createElement(
-                      "span",
-                      { className: "user-name" },
-                      "Nina Simone"
-                    ),
-                    _react2.default.createElement(
-                      "span",
-                      { className: "listing-date" },
-                      "Posted on 8/22/2018"
-                    )
-                  )
+                  "span",
+                  { className: "monthlyPrice" },
+                  "$1,250 Monthly"
                 ),
                 _react2.default.createElement(
-                  "div",
-                  { className: "listing-details" },
-                  _react2.default.createElement(
-                    "div",
-                    { className: "squareFootage" },
-                    _react2.default.createElement("i", { className: "fas fa-home" }),
-                    _react2.default.createElement(
-                      "span",
-                      null,
-                      "1,456 sqft"
-                    )
-                  ),
-                  _react2.default.createElement(
-                    "div",
-                    { className: "bedrooms" },
-                    _react2.default.createElement("i", { className: "fas fa-bed" }),
-                    _react2.default.createElement(
-                      "span",
-                      null,
-                      "4 Bedrooms"
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  "div",
-                  { className: "viewListing" },
-                  "View Listing"
+                  "span",
+                  { className: "location" },
+                  _react2.default.createElement("i", { className: "fas fa-location-arrow" }),
+                  " Los Angeles, CA"
                 )
               )
-            ),
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-md-3" },
             _react2.default.createElement(
               "div",
-              { className: "bottom-info" },
+              { className: "listing" },
               _react2.default.createElement(
-                "span",
-                null,
-                "$1,250 Monthly"
+                "div",
+                { className: "listing-img" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "address" },
+                  "4812 Baldwin Hills"
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "details" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "user-details-container" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "user-img" },
+                      _react2.default.createElement("img", { src: "https://randomuser.me/api/portraits/women/65.jpg" })
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "user-details" },
+                      _react2.default.createElement(
+                        "span",
+                        { className: "user-name" },
+                        "Nina Simone"
+                      ),
+                      _react2.default.createElement(
+                        "span",
+                        { className: "listing-date" },
+                        "Posted on 8/22/2018"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "listing-details" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "squareFootage" },
+                      _react2.default.createElement("i", { className: "fas fa-home" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "1,456 sqft"
+                      )
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "bedrooms" },
+                      _react2.default.createElement("i", { className: "fas fa-bed" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "4 Bedrooms"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "viewListing" },
+                    "View Listing"
+                  )
+                )
               ),
               _react2.default.createElement(
-                "span",
-                null,
-                _react2.default.createElement("i", { className: "fas fa-location-arrow" }),
-                " Los Angeles, CA"
+                "div",
+                { className: "bottom-info" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "monthlyPrice" },
+                  "$1,250 Monthly"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "location" },
+                  _react2.default.createElement("i", { className: "fas fa-location-arrow" }),
+                  " Los Angeles, CA"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-md-3" },
+            _react2.default.createElement(
+              "div",
+              { className: "listing" },
+              _react2.default.createElement(
+                "div",
+                { className: "listing-img" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "address" },
+                  "4812 Baldwin Hills"
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "details" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "user-details-container" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "user-img" },
+                      _react2.default.createElement("img", { src: "https://randomuser.me/api/portraits/women/65.jpg" })
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "user-details" },
+                      _react2.default.createElement(
+                        "span",
+                        { className: "user-name" },
+                        "Nina Simone"
+                      ),
+                      _react2.default.createElement(
+                        "span",
+                        { className: "listing-date" },
+                        "Posted on 8/22/2018"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "listing-details" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "squareFootage" },
+                      _react2.default.createElement("i", { className: "fas fa-home" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "1,456 sqft"
+                      )
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "bedrooms" },
+                      _react2.default.createElement("i", { className: "fas fa-bed" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "4 Bedrooms"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "viewListing" },
+                    "View Listing"
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "bottom-info" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "monthlyPrice" },
+                  "$1,250 Monthly"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "location" },
+                  _react2.default.createElement("i", { className: "fas fa-location-arrow" }),
+                  " Los Angeles, CA"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-md-3" },
+            _react2.default.createElement(
+              "div",
+              { className: "listing" },
+              _react2.default.createElement(
+                "div",
+                { className: "listing-img" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "address" },
+                  "4812 Baldwin Hills"
+                ),
+                _react2.default.createElement(
+                  "div",
+                  { className: "details" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "user-details-container" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "user-img" },
+                      _react2.default.createElement("img", { src: "https://randomuser.me/api/portraits/women/65.jpg" })
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "user-details" },
+                      _react2.default.createElement(
+                        "span",
+                        { className: "user-name" },
+                        "Nina Simone"
+                      ),
+                      _react2.default.createElement(
+                        "span",
+                        { className: "listing-date" },
+                        "Posted on 8/22/2018"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "listing-details" },
+                    _react2.default.createElement(
+                      "div",
+                      { className: "squareFootage" },
+                      _react2.default.createElement("i", { className: "fas fa-home" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "1,456 sqft"
+                      )
+                    ),
+                    _react2.default.createElement(
+                      "div",
+                      { className: "bedrooms" },
+                      _react2.default.createElement("i", { className: "fas fa-bed" }),
+                      _react2.default.createElement(
+                        "span",
+                        null,
+                        "4 Bedrooms"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "div",
+                    { className: "viewListing" },
+                    "View Listing"
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "bottom-info" },
+                _react2.default.createElement(
+                  "span",
+                  { className: "monthlyPrice" },
+                  "$1,250 Monthly"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "location" },
+                  _react2.default.createElement("i", { className: "fas fa-location-arrow" }),
+                  " Los Angeles, CA"
+                )
               )
             )
           )
@@ -489,15 +757,15 @@ var Header = function (_Component) {
           { className: "pagination" },
           _react2.default.createElement(
             "ul",
-            { className: "pagination-nums" },
+            { className: "pages" },
             _react2.default.createElement(
               "li",
-              null,
+              { className: "pageButtons" },
               "Prev"
             ),
             _react2.default.createElement(
               "li",
-              null,
+              { className: "active" },
               "1"
             ),
             _react2.default.createElement(
@@ -522,7 +790,7 @@ var Header = function (_Component) {
             ),
             _react2.default.createElement(
               "li",
-              null,
+              { className: "pageButtons" },
               "Next"
             )
           )
