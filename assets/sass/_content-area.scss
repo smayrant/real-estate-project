@@ -1,0 +1,221 @@
+#content-area {
+  overflow: auto;
+  width: 100%;
+  min-height: 100vh;
+}
+
+#filter {
+  background: $medgrey;
+  width: 30%;
+  max-width: 300px;
+  float: left;
+  display: inline-block;
+
+  .filterContainer {
+    padding: 20px;
+    max-width: 300px;
+  }
+
+  h4 {
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
+  select {
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1b1b1b;
+    display: block;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  .filters {
+    .title {
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 1rem;
+      color: #666464;
+    }
+
+    input[type="text"] {
+      display: inline-block;
+      font-size: 1rem;
+      padding: 0.3rem;
+      width: 45%;
+      margin-right: 2.5%;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+
+    &.extras {
+      label {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+
+        input[type="checkbox"] {
+          float: left;
+          margin: 1.5px 8px 0 0;
+        }
+      }
+    }
+  }
+}
+
+#listings {
+  width: 70%;
+  float: left;
+  display: inline-block;
+  padding: 15px;
+  background: $lightgrey;
+
+  .search-area {
+    input[type="text"] {
+      width: 70%;
+      background: transparent;
+      font-size: 2rem;
+      border: none;
+      border-bottom: 1.5px solid $darkgrey;
+      margin-bottom: 20px;
+      color: $textgrey;
+    }
+  }
+
+  .sort-by-area {
+    margin-bottom: 20px;
+
+    .results {
+      font-size: 0.8rem;
+      color: $textgrey;
+      display: inline-block;
+    }
+
+    .sort-options {
+      float: right;
+
+      select {
+        font-size: 0.8rem;
+        font-weight: 300;
+        border: 1px solid $darkgrey;
+        background: transparent;
+        display: inline-block;
+        margin-right: 15px;
+        vertical-align: top;
+      }
+
+      .view {
+        display: inline-block;
+
+        i {
+          margin-right: 15px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .listings-results {
+    margin-bottom: 60px;
+
+    .listing {
+      background: #fff;
+      width: 33.33%;
+      -webkit-box-shadow: 0 12px 29px -8px rgba(212,212,212,1);
+      -moz-box-shadow: 0 12px 29px -8px rgba(212,212,212,1);
+      box-shadow: 0 12px 29px -8px rgba(212,212,212,1);
+      border-radius: 5px;
+    }
+
+    .listing-img {
+      padding: 15px;
+      color: #fff;
+      position: relative;
+      background: url("https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b749ef140950edd755a159baaca6b6f0&auto=format&fit=crop&w=1950&q=80") no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      min-height: 225px;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      .details{
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: rgba(214,98,200,1);
+        background: -moz-linear-gradient(-45deg, rgba(214,98,200,1) 0%, rgba(15,55,255,0.61) 100%);
+        background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(214,98,200,1)), color-stop(100%, rgba(15,55,255,0.61)));
+        background: -webkit-linear-gradient(-45deg, rgba(214,98,200,1) 0%, rgba(15,55,255,0.61) 100%);
+        background: -o-linear-gradient(-45deg, rgba(214,98,200,1) 0%, rgba(15,55,255,0.61) 100%);
+        background: -ms-linear-gradient(-45deg, rgba(214,98,200,1) 0%, rgba(15,55,255,0.61) 100%);
+        background: linear-gradient(135deg, rgba(214,98,200,1) 0%, rgba(15,55,255,0.61) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d662c8', endColorstr='#0f37ff', GradientType=1 );
+
+        .user-img{
+          display: inline-block;
+          img{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+
+          }
+        }
+
+        .user-details{
+          display: inline-block;
+          vertical-align: top;
+          font-size: .9rem;
+          width: 70%;
+          margin-left: 20px;
+
+          .listing-date{
+            display: block;
+            color: rgba(255, 255, 255, .7);
+            font-weight: 300;
+          }
+
+          .user-name{
+            display: block;
+            padding-bottom: 3px;
+          }
+        }
+        .bedrooms{
+          i{
+
+          }
+          span{ß
+
+          }
+        }
+        .listing-details{
+          margin-top: 20px;
+
+        }
+      }
+    }
+
+    .bottom-info{
+      color: $textgrey;
+    }
+  }
+}
