@@ -109,6 +109,8 @@ var _listingsData2 = _interopRequireDefault(_listingsData);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -125,11 +127,24 @@ var App = function (_Component) {
 
     _this.state = {
       listingsData: _listingsData2.default
+
     };
+    _this.change = _this.change.bind(_this);
     return _this;
   }
 
   _createClass(App, [{
+    key: 'change',
+    value: function change(event) {
+      var _this2 = this;
+
+      var name = event.target.name;
+      var value = event.target.value;
+      this.setState(_defineProperty({}, name, value), function () {
+        console.log(_this2.state);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       console.log(this.state.listingsData);
@@ -140,7 +155,7 @@ var App = function (_Component) {
         _react2.default.createElement(
           'section',
           { id: 'content-area' },
-          _react2.default.createElement(_Filter2.default, null),
+          _react2.default.createElement(_Filter2.default, { change: this.change }),
           _react2.default.createElement(_Listings2.default, { listingsData: this.state.listingsData })
         )
       );
@@ -208,11 +223,21 @@ var Filter = function (_Component) {
           ),
           _react2.default.createElement(
             "select",
-            { name: "neighborhood", className: "filters neighborhood" },
+            { name: "neighborhood", className: "filters neighborhood", onChange: this.props.change },
             _react2.default.createElement(
               "option",
-              null,
+              { value: "Circle Dr" },
               "Circle Dr"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "Miami" },
+              "Miami"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "ft wash" },
+              "Ft Wash"
             )
           ),
           _react2.default.createElement(
@@ -450,11 +475,11 @@ var Header = function (_Component) {
             { className: "listing" },
             _react2.default.createElement(
               "div",
-              { className: "listing-img" },
+              { className: "listing-img", style: { background: "url(\"" + listing.image + "\") no-repeat center center" } },
               _react2.default.createElement(
                 "span",
                 { className: "address" },
-                "4812 Baldwin Hills"
+                listing.address
               ),
               _react2.default.createElement(
                 "div",
@@ -492,7 +517,8 @@ var Header = function (_Component) {
                     _react2.default.createElement(
                       "span",
                       null,
-                      "1,456 sqft"
+                      listing.sqft,
+                      " sqft"
                     )
                   ),
                   _react2.default.createElement(
@@ -502,7 +528,8 @@ var Header = function (_Component) {
                     _react2.default.createElement(
                       "span",
                       null,
-                      "4 Bedrooms"
+                      listing.bedrooms,
+                      " Bedrooms"
                     )
                   )
                 ),
@@ -519,13 +546,17 @@ var Header = function (_Component) {
               _react2.default.createElement(
                 "span",
                 { className: "monthlyPrice" },
-                "$1,250 Monthly"
+                "$",
+                listing.price
               ),
               _react2.default.createElement(
                 "span",
                 { className: "location" },
                 _react2.default.createElement("i", { className: "fas fa-location-arrow" }),
-                " Los Angeles, CA"
+                " ",
+                listing.city,
+                ", ",
+                listing.state
               )
             )
           )

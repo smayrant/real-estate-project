@@ -9,8 +9,10 @@ export default class Filter extends Component {
     return (<section id="filter">
       <div className="filterContainer">
         <h4>Filter</h4>
-        <select name="neighborhood" className="filters neighborhood">
-          <option>Circle Dr</option>
+        <select name="neighborhood" className="filters neighborhood" onChange={this.props.change}>
+          <option value="Circle Dr">Circle Dr</option>
+          <option value="Miami">Miami</option>
+          <option value="ft wash">Ft Wash</option>
         </select>
         <select name="housetype" className="filters houseType">
           <option>Colonial</option>
