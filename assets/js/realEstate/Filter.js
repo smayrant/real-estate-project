@@ -9,23 +9,28 @@ export default class Filter extends Component {
     return (<section id="filter">
       <div className="filterContainer">
         <h4>Filter</h4>
-        <select name="neighborhood" className="filters neighborhood" onChange={this.props.change}>
-          <option value="Circle Dr">Houston</option>
+        <select name="city" className="filters city" onChange={this.props.change}>
+          <option value="All">All</option>
+          <option value="Houston">Houston</option>
           <option value="Miami">Miami</option>
-          <option value="ft wash">Los Angeles</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Seattle">Seattle</option>
+          <option value="Boston">Boston</option>
         </select>
-        <select name="housetype" className="filters houseType" onChange={this.props.change}>
+        <select name="homeType" className="filters homeType" onChange={this.props.change}>
+          <option value="All">All Home Types</option>
           <option value="Colonial">Single Family</option>
           <option value="Single Family">Apartment</option>
           <option value="Ranch">Townhouse</option>
         </select>
         <select name="bedrooms" className="filters bedrooms" onChange={this.props.change}>
-          <option value="1">1 Bedrooms</option>
-          <option value="2">2 Bedrooms</option>
-          <option value="3">3 Bedrooms</option>
-          <option value="4">4 Bedrooms</option>
-          <option value="5">5 Bedrooms</option>
-          <option value="6">6 Bedrooms</option>
+
+          <option value="1">1+ Bedrooms</option>
+          <option value="2">2+ Bedrooms</option>
+          <option value="3">3+ Bedrooms</option>
+          <option value="4">4+ Bedrooms</option>
+          <option value="5">5+ Bedrooms</option>
+          <option value="6">6+ Bedrooms</option>
         </select>
         <div className="filters price">
           <span className="title">Price</span>

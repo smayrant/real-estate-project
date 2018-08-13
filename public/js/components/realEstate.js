@@ -11,12 +11,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 var listingsData = [{
   address: '2034 Grand Ave',
-  city: 'Fort Washington',
+  city: 'Los Angeles',
   state: 'CA',
   bedrooms: 5,
   price: 450000,
-  sqft: 2500,
-  houseType: 'Single family',
+  sqft: 2586,
+  homeType: 'Townhouse',
   image: 'https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   extras: ['elevator', 'gym']
 }, {
@@ -25,8 +25,8 @@ var listingsData = [{
   state: 'MD',
   bedrooms: 3,
   price: 350000,
-  sqft: 3200,
-  houseType: 'Single family',
+  sqft: 3215,
+  homeType: 'Single_family',
   image: 'https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   extras: ['elevator', 'gym']
 }, {
@@ -35,18 +35,18 @@ var listingsData = [{
   state: 'MA',
   bedrooms: 4,
   price: 290000,
-  sqft: 2700,
-  houseType: 'Single family',
+  sqft: 2722,
+  homeType: 'Townhouse',
   image: 'https://images.pexels.com/photos/221024/pexels-photo-221024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   extras: ['elevator', 'gym']
 }, {
   address: '983 Patallion Dr',
-  city: 'Fort Worth',
-  state: 'TX',
+  city: 'Los Angeles',
+  state: 'CA',
   bedrooms: 4,
   price: 150000,
-  sqft: 1100,
-  houseType: 'Apartment',
+  sqft: 1175,
+  homeType: 'Apartment',
   image: 'https://images.pexels.com/photos/144632/pexels-photo-144632.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   extras: ['elevator', 'gym']
 }, {
@@ -55,19 +55,29 @@ var listingsData = [{
   state: 'WA',
   bedrooms: 6,
   price: 650000,
-  sqft: 4000,
-  houseType: 'Single family',
+  sqft: 4146,
+  homeType: 'Single_family',
   image: 'https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   extras: ['elevator', 'gym']
 }, {
   address: '6544 Grand Way',
-  city: 'Hollywood',
-  state: 'CA',
+  city: 'Miami',
+  state: 'FL',
   bedrooms: 3,
   price: 270000,
-  sqft: 1900,
-  houseType: 'Apartment',
+  sqft: 1980,
+  homeType: 'Apartment',
   image: 'https://images.pexels.com/photos/271689/pexels-photo-271689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+  extras: ['elevator', 'gym']
+}, {
+  address: '8439 Terrace Hills',
+  city: 'Houston',
+  state: 'TX',
+  bedrooms: 5,
+  price: 750000,
+  sqft: 2720,
+  homeType: 'Townhouse',
+  image: 'https://images.pexels.com/photos/415687/pexels-photo-415687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   extras: ['elevator', 'gym']
 }];
 
@@ -127,6 +137,9 @@ var App = function (_Component) {
 
     _this.state = {
       listingsData: _listingsData2.default,
+      city: 'All',
+      homeType: 'All',
+      bedrooms: 1,
       min_price: 0,
       max_price: 10000000,
       min_square_footage: 0,
@@ -134,9 +147,11 @@ var App = function (_Component) {
       elevator: false,
       finished_basement: false,
       gym: false,
-      swimming_pool: false
+      swimming_pool: false,
+      filteredData: _listingsData2.default
     };
     _this.change = _this.change.bind(_this);
+    _this.filteredData = _this.filteredData.bind(_this);
     return _this;
   }
 
@@ -151,6 +166,28 @@ var App = function (_Component) {
 
       this.setState(_defineProperty({}, name, value), function () {
         console.log(_this2.state);
+        _this2.filteredData();
+      });
+    }
+  }, {
+    key: 'filteredData',
+    value: function filteredData() {
+      var _this3 = this;
+
+      // item is equal to each listing. The item(s) (listing(s)) that matches the price and sqft conditions is/are returned
+      var newData = this.state.listingsData.filter(function (item) {
+        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.sqft >= _this3.state.min_square_footage && item.sqft <= _this3.state.max_square_footage;
+      });
+      // the item(s) that match each city is returned
+      if (this.state.city != "All") {
+        newData = newData.filter(function (item) {
+          return item.city == _this3.state.city;
+        });
+      }
+
+      this.setState({
+        // the filteredData property is set to the newData variable
+        filteredData: newData
       });
     }
   }, {
@@ -164,7 +201,7 @@ var App = function (_Component) {
           'section',
           { id: 'content-area' },
           _react2.default.createElement(_Filter2.default, { change: this.change, globalState: this.state }),
-          _react2.default.createElement(_Listings2.default, { listingsData: this.state.listingsData })
+          _react2.default.createElement(_Listings2.default, { listingsData: this.state.filteredData })
         )
       );
     }
@@ -231,10 +268,15 @@ var Filter = function (_Component) {
           ),
           _react2.default.createElement(
             "select",
-            { name: "neighborhood", className: "filters neighborhood", onChange: this.props.change },
+            { name: "city", className: "filters city", onChange: this.props.change },
             _react2.default.createElement(
               "option",
-              { value: "Circle Dr" },
+              { value: "All" },
+              "All"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "Houston" },
               "Houston"
             ),
             _react2.default.createElement(
@@ -244,13 +286,28 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               "option",
-              { value: "ft wash" },
+              { value: "Los Angeles" },
               "Los Angeles"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "Seattle" },
+              "Seattle"
+            ),
+            _react2.default.createElement(
+              "option",
+              { value: "Boston" },
+              "Boston"
             )
           ),
           _react2.default.createElement(
             "select",
-            { name: "housetype", className: "filters houseType", onChange: this.props.change },
+            { name: "homeType", className: "filters homeType", onChange: this.props.change },
+            _react2.default.createElement(
+              "option",
+              { value: "All" },
+              "All Home Types"
+            ),
             _react2.default.createElement(
               "option",
               { value: "Colonial" },
@@ -273,32 +330,32 @@ var Filter = function (_Component) {
             _react2.default.createElement(
               "option",
               { value: "1" },
-              "1 Bedrooms"
+              "1+ Bedrooms"
             ),
             _react2.default.createElement(
               "option",
               { value: "2" },
-              "2 Bedrooms"
+              "2+ Bedrooms"
             ),
             _react2.default.createElement(
               "option",
               { value: "3" },
-              "3 Bedrooms"
+              "3+ Bedrooms"
             ),
             _react2.default.createElement(
               "option",
               { value: "4" },
-              "4 Bedrooms"
+              "4+ Bedrooms"
             ),
             _react2.default.createElement(
               "option",
               { value: "5" },
-              "5 Bedrooms"
+              "5+ Bedrooms"
             ),
             _react2.default.createElement(
               "option",
               { value: "6" },
-              "6 Bedrooms"
+              "6+ Bedrooms"
             )
           ),
           _react2.default.createElement(
@@ -508,6 +565,11 @@ var Header = function (_Component) {
     value: function loopListings() {
       var listingsData = this.props.listingsData;
 
+      // Error message if the filtered data returns no listings
+
+      if (listingsData == undefined || listingsData.length == 0) {
+        return "Sorry, your filter(s) did not match any listings.";
+      }
 
       return listingsData.map(function (listing, index) {
         return _react2.default.createElement(

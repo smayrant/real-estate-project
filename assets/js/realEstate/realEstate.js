@@ -10,6 +10,9 @@ class App extends Component {
     super()
     this.state = {
       listingsData,
+      city: 'All',
+      homeType: 'All',
+      bedrooms: 1,
       min_price: 0,
       max_price: 10000000,
       min_square_footage: 0,
@@ -18,7 +21,7 @@ class App extends Component {
       finished_basement: false,
       gym: false,
       swimming_pool: false,
-      filteredData: listingData
+      filteredData: listingsData
     }
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
@@ -32,11 +35,26 @@ class App extends Component {
       [name]: value
     }, () => {
       console.log(this.state)
+      this.filteredData()
     })
   }
 
   filteredData(){
+    // item is equal to each listing. The item(s) (listing(s)) that matches the price and sqft conditions is/are returned
+    let newData = this.state.listingsData.filter((item) => {
+      return item.price >= this.state.min_price && item.price <= this.state.max_price && item.sqft >= this.state.min_square_footage && item.sqft <= this.state.max_square_footage
+    })
+    // the item(s) that match each city is returned
+    if(this.state.city != "All"){
+      newData = newData.filter((item) =>{
+        return item.city == this.state.city
+      })
+    }
 
+    this.setState({
+      // the filteredData property is set to the newData variable
+      filteredData: newData
+    })
   }
 
   render () {

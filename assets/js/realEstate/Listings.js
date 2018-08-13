@@ -13,6 +13,11 @@ export default class Header extends Component {
 
       let {listingsData} = this.props
 
+      // Error message if the filtered data returns no listings
+      if (listingsData == undefined || listingsData.length == 0){
+        return "Sorry, your filter(s) did not match any listings."
+      }
+
       return listingsData.map((listing, index) =>{
         return (<div className="col-md-3" key={index}>
             <div className="listing">
