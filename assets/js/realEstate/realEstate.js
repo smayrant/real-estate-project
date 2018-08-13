@@ -40,14 +40,21 @@ class App extends Component {
   }
 
   filteredData(){
-    // item is equal to each listing. The item(s) (listing(s)) that matches the price and sqft conditions is/are returned
+    // item is equal to each listing. The item(s) (listing(s)) that matches the price, bedroom and sqft conditions is/are returned
     let newData = this.state.listingsData.filter((item) => {
       return item.price >= this.state.min_price && item.price <= this.state.max_price && item.sqft >= this.state.min_square_footage && item.sqft <= this.state.max_square_footage
+      && item.bedrooms >= this.state.bedrooms
     })
     // the item(s) that match each city is returned
     if(this.state.city != "All"){
       newData = newData.filter((item) =>{
         return item.city == this.state.city
+      })
+    }
+    // the item(s) that match the home type is returned
+    if(this.state.homeType != "All"){
+      newData = newData.filter((item) =>{
+        return item.homeType == this.state.homeType
       })
     }
 

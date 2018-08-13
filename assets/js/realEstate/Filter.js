@@ -9,6 +9,8 @@ export default class Filter extends Component {
     return (<section id="filter">
       <div className="filterContainer">
         <h4>Filter</h4>
+
+        <label htmlFor="city">City</label>
         <select name="city" className="filters city" onChange={this.props.change}>
           <option value="All">All</option>
           <option value="Houston">Houston</option>
@@ -17,14 +19,17 @@ export default class Filter extends Component {
           <option value="Seattle">Seattle</option>
           <option value="Boston">Boston</option>
         </select>
+
+        <label htmlFor="homeType">Home Type</label>
         <select name="homeType" className="filters homeType" onChange={this.props.change}>
           <option value="All">All Home Types</option>
-          <option value="Colonial">Single Family</option>
-          <option value="Single Family">Apartment</option>
-          <option value="Ranch">Townhouse</option>
+          <option value="Single_family">Single Family</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Townhouse">Townhouse</option>
         </select>
-        <select name="bedrooms" className="filters bedrooms" onChange={this.props.change}>
 
+        <label htmlFor="bedrooms">Bedrooms</label>
+        <select name="bedrooms" className="filters bedrooms" onChange={this.props.change}>
           <option value="1">1+ Bedrooms</option>
           <option value="2">2+ Bedrooms</option>
           <option value="3">3+ Bedrooms</option>
@@ -32,6 +37,7 @@ export default class Filter extends Component {
           <option value="5">5+ Bedrooms</option>
           <option value="6">6+ Bedrooms</option>
         </select>
+        
         <div className="filters price">
           <span className="title">Price</span>
           <input placeholder="Min Price" type="text" name="min_price" className="min-price" onChange={this.props.change} value={this.props.globalState.min_price}/>

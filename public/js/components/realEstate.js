@@ -174,14 +174,20 @@ var App = function (_Component) {
     value: function filteredData() {
       var _this3 = this;
 
-      // item is equal to each listing. The item(s) (listing(s)) that matches the price and sqft conditions is/are returned
+      // item is equal to each listing. The item(s) (listing(s)) that matches the price, bedroom and sqft conditions is/are returned
       var newData = this.state.listingsData.filter(function (item) {
-        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.sqft >= _this3.state.min_square_footage && item.sqft <= _this3.state.max_square_footage;
+        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.sqft >= _this3.state.min_square_footage && item.sqft <= _this3.state.max_square_footage && item.bedrooms >= _this3.state.bedrooms;
       });
       // the item(s) that match each city is returned
       if (this.state.city != "All") {
         newData = newData.filter(function (item) {
           return item.city == _this3.state.city;
+        });
+      }
+      // the item(s) that match the home type is returned
+      if (this.state.homeType != "All") {
+        newData = newData.filter(function (item) {
+          return item.homeType == _this3.state.homeType;
         });
       }
 
@@ -267,6 +273,11 @@ var Filter = function (_Component) {
             "Filter"
           ),
           _react2.default.createElement(
+            "label",
+            { htmlFor: "city" },
+            "City"
+          ),
+          _react2.default.createElement(
             "select",
             { name: "city", className: "filters city", onChange: this.props.change },
             _react2.default.createElement(
@@ -301,6 +312,11 @@ var Filter = function (_Component) {
             )
           ),
           _react2.default.createElement(
+            "label",
+            { htmlFor: "homeType" },
+            "Home Type"
+          ),
+          _react2.default.createElement(
             "select",
             { name: "homeType", className: "filters homeType", onChange: this.props.change },
             _react2.default.createElement(
@@ -310,19 +326,24 @@ var Filter = function (_Component) {
             ),
             _react2.default.createElement(
               "option",
-              { value: "Colonial" },
+              { value: "Single_family" },
               "Single Family"
             ),
             _react2.default.createElement(
               "option",
-              { value: "Single Family" },
+              { value: "Apartment" },
               "Apartment"
             ),
             _react2.default.createElement(
               "option",
-              { value: "Ranch" },
+              { value: "Townhouse" },
               "Townhouse"
             )
+          ),
+          _react2.default.createElement(
+            "label",
+            { htmlFor: "bedrooms" },
+            "Bedrooms"
           ),
           _react2.default.createElement(
             "select",
