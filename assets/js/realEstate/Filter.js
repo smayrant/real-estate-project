@@ -9,7 +9,7 @@ export default class Filter extends Component {
     this.bedrooms = this.bedrooms.bind(this)
   }
 
-// the populateAction method is called before the component is rendered
+// the populateAction method is called before the component is rendered to ensure the forms are populated with data
 componentWillMount(){
   this.props.populateAction()
 }

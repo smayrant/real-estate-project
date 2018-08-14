@@ -22,12 +22,24 @@ class App extends Component {
       gym: false,
       swimming_pool: false,
       filteredData: listingsData,
-      populateFormsData: ''
+      populateFormsData: '',
+      sortby: 'price-asc'
     }
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
     this.populateForms = this.populateForms.bind(this)
   }
+
+  // runs this method before the component is rendered to show the listings from lowest price to highest price
+  componentWillMount(){
+    let listingsData = this.state.listingsData.sort((firstListing, secondListing) =>{
+      return firstListing.price - secondListing.price
+    })
+    this.setState({
+      listingsData
+    })
+  }
+
   change(event){
     let name = event.target.name
     // value equals the checkbox if it's checked or the value of the event on anything other than a checkbox
@@ -42,7 +54,7 @@ class App extends Component {
   }
 
   filteredData(){
-    // item is equal to each listing. The item(s) (listing(s)) that matches the price, bedroom and sqft conditions is/are returned
+    // item is equal to each listing. The item(s) (or listing(s)) that matches the price, bedroom and sqft conditions is/are returned
     let newData = this.state.listingsData.filter((item) => {
       return item.price >= this.state.min_price && item.price <= this.state.max_price && item.sqft >= this.state.min_square_footage && item.sqft <= this.state.max_square_footage
       && item.bedrooms >= this.state.bedrooms
@@ -53,10 +65,24 @@ class App extends Component {
         return item.city == this.state.city
       })
     }
-    // the item(s) that match the home type is returned
+    // the item(s) that match the selected home type is returned
     if(this.state.homeType != "All"){
       newData = newData.filter((item) =>{
         return item.homeType == this.state.homeType
+      })
+    }
+
+    // sort and return listings by lowest price when the user selects 'Lowest Price'
+    if(this.state.sortby == 'price-asc'){
+      newData = newData.sort((firstListing, secondListing) =>{
+          return firstListing.price - secondListing.price
+      })
+    }
+
+    // sort and return listings by higheset price when the user selects 'Highest Price'
+    if(this.state.sortby == 'price-dsc'){
+      newData = newData.sort((firstListing, secondListing) =>{
+          return secondListing.price - firstListing.price
       })
     }
 
@@ -66,14 +92,18 @@ class App extends Component {
     })
   }
 
+  //
   populateForms(){
     // City
     let cities = this.state.listingsData.map((item) =>{
       return item.city
     })
       cities = new Set(cities)
-
+      // The set is placed into an array
       cities = [...cities]
+
+      // sorts the returned cities from A to Z
+      cities = cities.sort()
 
     // home Type
     let homeTypes = this.state.listingsData.map((item) =>{
@@ -82,12 +112,18 @@ class App extends Component {
       homeTypes = new Set(homeTypes)
       homeTypes = [...homeTypes]
 
+      // sorts the returned home types from A to Z
+      homeTypes = homeTypes.sort()
+
     // bedrooms
     let bedrooms = this.state.listingsData.map((item) =>{
       return item.bedrooms
     })
       bedrooms = new Set(bedrooms)
       bedrooms = [...bedrooms]
+
+      // sorts the number of bedrooms numerically
+      bedrooms = bedrooms.sort()
 
       this.setState({
         populateFormsData: {
@@ -105,7 +141,7 @@ class App extends Component {
       <Header />
       <section id="content-area">
         <Filter change={this.change} globalState={this.state} populateAction={this.populateForms}/>
-        <Listings listingsData={this.state.filteredData}/>
+        <Listings listingsData={this.state.filteredData} change={this.change}/>
       </section>
     </div>)
   }

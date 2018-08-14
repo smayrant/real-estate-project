@@ -61,12 +61,12 @@ export default class Header extends Component {
       <section className="search-area">
         <input type="text" name="search"/>
       </section>
-      <section className="sort-by-area">
+      <section className="sortby-area">
         <div className="results">390 Results Found</div>
         <div className="sort-options">
-          <select name="sort-by" className="sort-by">
-            <option value="price-asc">Highest Price</option>
-            <option value="price-dsc">Lowest Price</option>
+          <select name="sortby" className="sortby" onChange={this.props.change}>
+            <option value="price-asc">Lowest Price</option>
+            <option value="price-dsc">Highest Price</option>
           </select>
           <div className="view">
             <i className="fas fa-list-ul"></i>

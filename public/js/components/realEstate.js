@@ -43,7 +43,7 @@ var listingsData = [{
   address: '983 Patallion Dr',
   city: 'Los Angeles',
   state: 'CA',
-  bedrooms: 4,
+  bedrooms: 1,
   price: 150000,
   sqft: 1175,
   homeType: 'Apartment',
@@ -63,7 +63,7 @@ var listingsData = [{
   address: '6544 Grand Way',
   city: 'Miami',
   state: 'FL',
-  bedrooms: 3,
+  bedrooms: 2,
   price: 270000,
   sqft: 1980,
   homeType: 'Apartment',
@@ -151,7 +151,8 @@ var App = function (_Component) {
       gym: false,
       swimming_pool: false,
       filteredData: _listingsData2.default,
-      populateFormsData: ''
+      populateFormsData: '',
+      sortby: 'price-asc'
     };
     _this.change = _this.change.bind(_this);
     _this.filteredData = _this.filteredData.bind(_this);
@@ -159,7 +160,20 @@ var App = function (_Component) {
     return _this;
   }
 
+  // runs this method before the component is rendered to show the listings from lowest price to highest price
+
+
   _createClass(App, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var listingsData = this.state.listingsData.sort(function (firstListing, secondListing) {
+        return firstListing.price - secondListing.price;
+      });
+      this.setState({
+        listingsData: listingsData
+      });
+    }
+  }, {
     key: 'change',
     value: function change(event) {
       var _this2 = this;
@@ -178,7 +192,7 @@ var App = function (_Component) {
     value: function filteredData() {
       var _this3 = this;
 
-      // item is equal to each listing. The item(s) (listing(s)) that matches the price, bedroom and sqft conditions is/are returned
+      // item is equal to each listing. The item(s) (or listing(s)) that matches the price, bedroom and sqft conditions is/are returned
       var newData = this.state.listingsData.filter(function (item) {
         return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.sqft >= _this3.state.min_square_footage && item.sqft <= _this3.state.max_square_footage && item.bedrooms >= _this3.state.bedrooms;
       });
@@ -188,10 +202,24 @@ var App = function (_Component) {
           return item.city == _this3.state.city;
         });
       }
-      // the item(s) that match the home type is returned
+      // the item(s) that match the selected home type is returned
       if (this.state.homeType != "All") {
         newData = newData.filter(function (item) {
           return item.homeType == _this3.state.homeType;
+        });
+      }
+
+      // sort and return listings by lowest price when the user selects 'Lowest Price'
+      if (this.state.sortby == 'price-asc') {
+        newData = newData.sort(function (firstListing, secondListing) {
+          return firstListing.price - secondListing.price;
+        });
+      }
+
+      // sort and return listings by higheset price when the user selects 'Highest Price'
+      if (this.state.sortby == 'price-dsc') {
+        newData = newData.sort(function (firstListing, secondListing) {
+          return secondListing.price - firstListing.price;
         });
       }
 
@@ -200,6 +228,9 @@ var App = function (_Component) {
         filteredData: newData
       });
     }
+
+    //
+
   }, {
     key: 'populateForms',
     value: function populateForms() {
@@ -210,8 +241,11 @@ var App = function (_Component) {
         return item.city;
       });
       cities = new Set(cities);
-
+      // The set is placed into an array
       cities = [].concat(_toConsumableArray(cities));
+
+      // sorts the returned cities from A to Z
+      cities = cities.sort();
 
       // home Type
       var homeTypes = this.state.listingsData.map(function (item) {
@@ -220,12 +254,18 @@ var App = function (_Component) {
       homeTypes = new Set(homeTypes);
       homeTypes = [].concat(_toConsumableArray(homeTypes));
 
+      // sorts the returned home types from A to Z
+      homeTypes = homeTypes.sort();
+
       // bedrooms
       var bedrooms = this.state.listingsData.map(function (item) {
         return item.bedrooms;
       });
       bedrooms = new Set(bedrooms);
       bedrooms = [].concat(_toConsumableArray(bedrooms));
+
+      // sorts the number of bedrooms numerically
+      bedrooms = bedrooms.sort();
 
       this.setState({
         populateFormsData: {
@@ -248,7 +288,7 @@ var App = function (_Component) {
           'section',
           { id: 'content-area' },
           _react2.default.createElement(_Filter2.default, { change: this.change, globalState: this.state, populateAction: this.populateForms }),
-          _react2.default.createElement(_Listings2.default, { listingsData: this.state.filteredData })
+          _react2.default.createElement(_Listings2.default, { listingsData: this.state.filteredData, change: this.change })
         )
       );
     }
@@ -302,7 +342,7 @@ var Filter = function (_Component) {
     return _this;
   }
 
-  // the populateAction method is called before the component is rendered
+  // the populateAction method is called before the component is rendered to ensure the forms are populated with data
 
 
   _createClass(Filter, [{
@@ -733,7 +773,7 @@ var Header = function (_Component) {
         ),
         _react2.default.createElement(
           "section",
-          { className: "sort-by-area" },
+          { className: "sortby-area" },
           _react2.default.createElement(
             "div",
             { className: "results" },
@@ -744,16 +784,16 @@ var Header = function (_Component) {
             { className: "sort-options" },
             _react2.default.createElement(
               "select",
-              { name: "sort-by", className: "sort-by" },
+              { name: "sortby", className: "sortby", onChange: this.props.change },
               _react2.default.createElement(
                 "option",
                 { value: "price-asc" },
-                "Highest Price"
+                "Lowest Price"
               ),
               _react2.default.createElement(
                 "option",
                 { value: "price-dsc" },
-                "Lowest Price"
+                "Highest Price"
               )
             ),
             _react2.default.createElement(
