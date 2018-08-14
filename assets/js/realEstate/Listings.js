@@ -67,6 +67,10 @@ export default class Header extends Component {
           <select name="sortby" className="sortby" onChange={this.props.change}>
             <option value="price-asc">Lowest Price</option>
             <option value="price-dsc">Highest Price</option>
+            <option value="sqft-asc">Lowest Sqft.</option>
+            <option value="sqft-dsc">Highest Sqft.</option>
+            <option value="bed-asc">Bedrooms (Low to High)</option>
+            <option value="bed-dsc">Bedrooms (High to Low)</option>
           </select>
           <div className="view">
             <i className="fas fa-list-ul"></i>

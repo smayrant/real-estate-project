@@ -72,6 +72,7 @@ class App extends Component {
       })
     }
 
+    // ----------------------- THE SORTING SECTION -------------------------
     // sort and return listings by lowest price when the user selects 'Lowest Price'
     if(this.state.sortby == 'price-asc'){
       newData = newData.sort((firstListing, secondListing) =>{
@@ -83,6 +84,34 @@ class App extends Component {
     if(this.state.sortby == 'price-dsc'){
       newData = newData.sort((firstListing, secondListing) =>{
           return secondListing.price - firstListing.price
+      })
+    }
+
+    // sort and return listings by higheset square footage when the user selects 'Highest Sqft.'
+    if(this.state.sortby == 'sqft-dsc'){
+      newData = newData.sort((firstListing, secondListing) =>{
+          return secondListing.sqft - firstListing.sqft
+      })
+    }
+
+    // sort and return listings by lowest square footage when the user selects 'Lowest Sqft.'
+    if(this.state.sortby == 'sqft-asc'){
+      newData = newData.sort((firstListing, secondListing) =>{
+          return firstListing.sqft - secondListing.sqft
+      })
+    }
+
+    // sort and return listings by higheset square footage when the user selects 'Highest Sqft.'
+    if(this.state.sortby == 'bed-dsc'){
+      newData = newData.sort((firstListing, secondListing) =>{
+          return secondListing.bedrooms - firstListing.bedrooms
+      })
+    }
+
+    // sort and return listings by higheset square footage when the user selects 'Highest Sqft.'
+    if(this.state.sortby == 'bed-asc'){
+      newData = newData.sort((firstListing, secondListing) =>{
+          return firstListing.bedrooms - secondListing.bedrooms
       })
     }
 

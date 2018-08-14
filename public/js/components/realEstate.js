@@ -209,6 +209,7 @@ var App = function (_Component) {
         });
       }
 
+      // ----------------------- THE SORTING SECTION -------------------------
       // sort and return listings by lowest price when the user selects 'Lowest Price'
       if (this.state.sortby == 'price-asc') {
         newData = newData.sort(function (firstListing, secondListing) {
@@ -220,6 +221,34 @@ var App = function (_Component) {
       if (this.state.sortby == 'price-dsc') {
         newData = newData.sort(function (firstListing, secondListing) {
           return secondListing.price - firstListing.price;
+        });
+      }
+
+      // sort and return listings by higheset square footage when the user selects 'Highest Sqft.'
+      if (this.state.sortby == 'sqft-dsc') {
+        newData = newData.sort(function (firstListing, secondListing) {
+          return secondListing.sqft - firstListing.sqft;
+        });
+      }
+
+      // sort and return listings by lowest square footage when the user selects 'Lowest Sqft.'
+      if (this.state.sortby == 'sqft-asc') {
+        newData = newData.sort(function (firstListing, secondListing) {
+          return firstListing.sqft - secondListing.sqft;
+        });
+      }
+
+      // sort and return listings by higheset square footage when the user selects 'Highest Sqft.'
+      if (this.state.sortby == 'bed-dsc') {
+        newData = newData.sort(function (firstListing, secondListing) {
+          return secondListing.bedrooms - firstListing.bedrooms;
+        });
+      }
+
+      // sort and return listings by higheset square footage when the user selects 'Highest Sqft.'
+      if (this.state.sortby == 'bed-asc') {
+        newData = newData.sort(function (firstListing, secondListing) {
+          return firstListing.bedrooms - secondListing.bedrooms;
         });
       }
 
@@ -794,6 +823,26 @@ var Header = function (_Component) {
                 "option",
                 { value: "price-dsc" },
                 "Highest Price"
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "sqft-asc" },
+                "Lowest Sqft."
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "sqft-dsc" },
+                "Highest Sqft."
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "bed-asc" },
+                "Bedrooms (Low to High)"
+              ),
+              _react2.default.createElement(
+                "option",
+                { value: "bed-dsc" },
+                "Bedrooms (High to Low)"
               )
             ),
             _react2.default.createElement(
