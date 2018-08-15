@@ -23,11 +23,16 @@ class App extends Component {
       swimming_pool: false,
       filteredData: listingsData,
       populateFormsData: '',
-      sortby: 'price-asc'
+      sortby: 'price-asc',
+      view: 'box',
+      search: ''
     }
+
+    // explicity defining the this keyword for each method
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
     this.populateForms = this.populateForms.bind(this)
+    this.changeView = this.changeView.bind(this)
   }
 
   // runs this method before the component is rendered to show the listings from lowest price to highest price
@@ -50,6 +55,12 @@ class App extends Component {
     }, () => {
       console.log(this.state)
       this.filteredData()
+    })
+  }
+
+  changeView(viewName){
+    this.setState({
+      view: viewName
     })
   }
 
@@ -170,7 +181,7 @@ class App extends Component {
       <Header />
       <section id="content-area">
         <Filter change={this.change} globalState={this.state} populateAction={this.populateForms}/>
-        <Listings listingsData={this.state.filteredData} change={this.change}/>
+        <Listings listingsData={this.state.filteredData} globalState={this.state} change={this.change} changeView ={this.changeView}/>
       </section>
     </div>)
   }
