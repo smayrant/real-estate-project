@@ -126,6 +126,19 @@ class App extends Component {
       })
     }
 
+    // whatever city the user searches for is matched and returned to the user
+    if(this.state.search != ''){
+      newData = newData.filter((item) =>{
+        let city = item.city.toLowerCase()
+        let searchText = this.state.search.toLowerCase()
+        let n = city.match(searchText)
+
+        if(n != null){
+          return true
+        }
+      })
+    }
+
     this.setState({
       // the filteredData property is set to the newData variable
       filteredData: newData

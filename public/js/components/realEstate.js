@@ -263,6 +263,19 @@ var App = function (_Component) {
         });
       }
 
+      // whatever city the user searches for is matched and returned to the user
+      if (this.state.search != '') {
+        newData = newData.filter(function (item) {
+          var city = item.city.toLowerCase();
+          var searchText = _this3.state.search.toLowerCase();
+          var n = city.match(searchText);
+
+          if (n != null) {
+            return true;
+          }
+        });
+      }
+
       this.setState({
         // the filteredData property is set to the newData variable
         filteredData: newData
@@ -911,7 +924,7 @@ var Header = function (_Component) {
         _react2.default.createElement(
           'section',
           { className: 'search-area' },
-          _react2.default.createElement('input', { type: 'text', name: 'search' })
+          _react2.default.createElement('input', { type: 'text', name: 'search', onChange: this.props.change })
         ),
         _react2.default.createElement(
           'section',

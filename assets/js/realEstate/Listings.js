@@ -101,7 +101,7 @@ export default class Header extends Component {
   render() {
     return (<section id="listings">
       <section className="search-area">
-        <input type="text" name="search"/>
+        <input type="text" name="search" onChange={this.props.change}/>
       </section>
       <section className="sortby-area">
         <div className="results">390 Results Found</div>
